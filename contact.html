@@ -52,7 +52,11 @@
   <div class="container">
     <div class="split" style="align-items:flex-start">
       <div class="reveal">
-        <form class="contact-form">
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="d83c240d-fd88-41ef-adf0-0286bfcd8891">
+          <input type="hidden" name="subject" value="New inquiry from Northstar Group website">
+          <input type="hidden" name="from_name" value="Northstar Group Website">
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="field">
               <label for="name">Full Name</label>
@@ -87,7 +91,7 @@
             <button type="submit" class="btn btn-primary">Send Inquiry</button>
           </div>
           <div class="form-success">Thank you — your inquiry has been received. Our team will follow up shortly.</div>
-          <p class="form-note">This form is a front-end demo and is not yet connected to an email or CRM backend.</p>
+          <div class="form-error">Something went wrong sending your message — please try again, or email us directly at <a href="mailto:partners@northstargroup.am">partners@northstargroup.am</a>.</div>
         </form>
       </div>
 
