@@ -78,16 +78,39 @@ document.addEventListener('DOMContentLoaded', () => {
     m.innerHTML += m.innerHTML;
   });
 
+  /* ---------- Toast ---------- */
+  let toastTimer;
+  const showToast = (message) => {
+    let toast = document.querySelector('.toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.setAttribute('role', 'status');
+      toast.innerHTML = `
+        <span class="toast-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+        <span class="toast-text"></span>
+        <button type="button" class="toast-close" aria-label="Dismiss"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></button>
+      `;
+      document.body.appendChild(toast);
+      toast.querySelector('.toast-close').addEventListener('click', () => {
+        toast.classList.remove('show');
+        clearTimeout(toastTimer);
+      });
+    }
+    toast.querySelector('.toast-text').textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 5000);
+  };
+
   /* ---------- Contact form (submits to Web3Forms) ---------- */
   const form = document.querySelector('.contact-form');
   if (form) {
-    const success = form.querySelector('.form-success');
     const error = form.querySelector('.form-error');
     const submitBtn = form.querySelector('button[type="submit"]');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      success && success.classList.remove('show');
       error && error.classList.remove('show');
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
 
@@ -100,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
         if (response.ok && result.success) {
           form.reset();
-          success && success.classList.add('show');
+          showToast('Thank you — your message has been sent successfully.');
         } else {
           error && error.classList.add('show');
         }

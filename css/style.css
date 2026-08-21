@@ -388,11 +388,43 @@ p{ margin:0; }
 }
 .field textarea{ resize:vertical; min-height:120px; }
 .form-note{ font-size:.85rem; color:var(--gray-400); }
-.form-success{ display:none; padding:18px 22px; border-radius:14px; background:var(--gold-dim); color:#7a5f28; font-weight:600; font-size:.95rem; }
-.form-success.show{ display:block; }
 .form-error{ display:none; padding:18px 22px; border-radius:14px; background:rgba(178,58,58,.1); color:#8a2e2e; font-weight:600; font-size:.95rem; }
 .form-error.show{ display:block; }
 .btn[disabled]{ opacity:.6; cursor:not-allowed; transform:none; }
+
+/* ---------- Toast ---------- */
+.toast{
+  position:fixed; top:24px; right:24px; z-index:3000;
+  display:flex; align-items:center; gap:14px;
+  max-width:380px;
+  padding:18px 22px;
+  border-radius:14px;
+  background:linear-gradient(150deg,var(--navy-2),var(--black));
+  border:1px solid rgba(217,184,119,.3);
+  box-shadow:0 24px 48px rgba(0,0,0,.35);
+  transform:translateY(-16px);
+  opacity:0;
+  pointer-events:none;
+  transition:transform .45s var(--ease), opacity .4s var(--ease);
+}
+.toast.show{ transform:translateY(0); opacity:1; pointer-events:auto; }
+.toast-icon{
+  flex:none; width:30px; height:30px; border-radius:50%;
+  background:rgba(217,184,119,.14);
+  border:1px solid rgba(217,184,119,.4);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--gold-light);
+}
+.toast-icon svg{ width:16px; height:16px; }
+.toast-text{ color:var(--text-dark-bg); font-size:.92rem; font-weight:500; line-height:1.5; }
+.toast-close{
+  flex:none; margin-left:4px; width:20px; height:20px; border:none; background:none; cursor:pointer;
+  color:var(--muted-dark-bg); display:flex; align-items:center; justify-content:center; padding:0;
+}
+.toast-close svg{ width:14px; height:14px; }
+@media (max-width:600px){
+  .toast{ left:16px; right:16px; top:16px; max-width:none; }
+}
 
 .contact-info-card{ display:flex; gap:18px; padding:26px 0; border-top:1px solid var(--line); }
 .contact-info-card:last-child{ border-bottom:1px solid var(--line); }
