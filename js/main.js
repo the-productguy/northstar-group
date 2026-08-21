@@ -78,6 +78,96 @@ document.addEventListener('DOMContentLoaded', () => {
     m.innerHTML += m.innerHTML;
   });
 
+  /* ---------- Custom select dropdowns (replaces native picker) ---------- */
+  document.querySelectorAll('.field select').forEach((select) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'custom-select';
+    select.parentNode.insertBefore(wrap, select);
+    wrap.appendChild(select);
+    select.classList.add('native-select-hidden');
+    select.setAttribute('tabindex', '-1');
+    select.setAttribute('aria-hidden', 'true');
+
+    const trigger = document.createElement('button');
+    trigger.type = 'button';
+    trigger.className = 'custom-select-trigger';
+    trigger.setAttribute('aria-haspopup', 'listbox');
+    trigger.setAttribute('aria-expanded', 'false');
+    if (select.id) trigger.setAttribute('id', select.id + '-trigger');
+
+    const triggerLabel = document.createElement('span');
+    trigger.appendChild(triggerLabel);
+    const chevron = document.createElement('span');
+    chevron.className = 'custom-select-chevron';
+    chevron.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+    trigger.appendChild(chevron);
+
+    const menu = document.createElement('ul');
+    menu.className = 'custom-select-menu';
+    menu.setAttribute('role', 'listbox');
+
+    const options = Array.from(select.options).map((opt) => {
+      const li = document.createElement('li');
+      li.className = 'custom-select-option';
+      li.setAttribute('role', 'option');
+      li.tabIndex = -1;
+      li.dataset.value = opt.value;
+      li.innerHTML = `<span>${opt.textContent}</span><svg class="check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+      menu.appendChild(li);
+      return li;
+    });
+
+    wrap.appendChild(trigger);
+    wrap.appendChild(menu);
+
+    const syncFromSelect = () => {
+      const selectedOption = select.options[select.selectedIndex];
+      triggerLabel.textContent = selectedOption ? selectedOption.textContent : '';
+      options.forEach(li => li.classList.toggle('is-selected', li.dataset.value === select.value));
+    };
+    syncFromSelect();
+
+    const closeMenu = () => {
+      wrap.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    };
+    const openMenu = () => {
+      wrap.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+      const current = options.find(li => li.classList.contains('is-selected'));
+      (current || options[0])?.focus();
+    };
+
+    trigger.addEventListener('click', () => {
+      wrap.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); openMenu(); }
+    });
+
+    options.forEach((li) => {
+      li.addEventListener('click', () => {
+        select.value = li.dataset.value;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+        syncFromSelect();
+        closeMenu();
+        trigger.focus();
+      });
+      li.addEventListener('keydown', (e) => {
+        const idx = options.indexOf(li);
+        if (e.key === 'ArrowDown') { e.preventDefault(); (options[idx + 1] || options[0]).focus(); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); (options[idx - 1] || options[options.length - 1]).focus(); }
+        else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); li.click(); }
+        else if (e.key === 'Escape') { e.preventDefault(); closeMenu(); trigger.focus(); }
+        else if (e.key === 'Tab') { closeMenu(); }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target)) closeMenu();
+    });
+  });
+
   /* ---------- Toast ---------- */
   let toastTimer;
   const showToast = (message) => {
