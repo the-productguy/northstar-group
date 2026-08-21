@@ -433,24 +433,12 @@ p{ margin:0; }
 .contact-info-card h4{ font-size:1rem; margin-bottom:4px; }
 .contact-info-card p{ color:var(--gray-600); font-size:.95rem; line-height:1.6; }
 
-.map-graphic{
-  border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3.4; position:relative;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(198,161,91,.35), transparent 40%),
-    linear-gradient(135deg,#101827,#06060a);
+.map-embed{
+  border-radius:var(--radius-lg); overflow:hidden; aspect-ratio:4/3.4;
   border:1px solid var(--line-dark);
+  filter:grayscale(.15) contrast(1.05);
 }
-.map-graphic .pin{
-  position:absolute; top:44%; left:46%; width:16px; height:16px; border-radius:50%;
-  background:var(--gold); box-shadow:0 0 0 8px rgba(198,161,91,.18), 0 0 0 16px rgba(198,161,91,.08);
-}
-.map-graphic .grid-lines{
-  position:absolute; inset:0;
-  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
-  background-size:40px 40px;
-}
-.map-caption{ position:absolute; bottom:22px; left:22px; color:#fff; font-size:.9rem; font-weight:600; }
-.map-caption span{ display:block; font-weight:400; font-size:.8rem; color:var(--muted-dark-bg); margin-top:2px; }
+.map-embed iframe{ display:block; width:100%; height:100%; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1024px){
