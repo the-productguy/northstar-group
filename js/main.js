@@ -39,7 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-    revealEls.forEach(el => io.observe(el));
+
+    // Reveal anything already in (or just below) the initial viewport
+    // immediately, so pages never load with hidden above-the-fold content
+    // waiting on a scroll event. Only content genuinely further down the
+    // page animates in on scroll.
+    const viewportH = window.innerHeight;
+    revealEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < viewportH * 1.15) {
+        el.classList.add('is-visible');
+      } else {
+        io.observe(el);
+      }
+    });
   } else {
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
