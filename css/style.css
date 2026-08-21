@@ -492,13 +492,13 @@ p{ margin:0; }
 /* ---------- Blog ---------- */
 .blog-card{
   background:var(--white); border:1px solid var(--line); border-radius:var(--radius-md);
-  padding:36px; display:flex; flex-direction:column; gap:16px;
+  padding:20px; display:flex; flex-direction:column; gap:10px;
   transition:transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s ease;
 }
 .blog-card:hover{ transform:translateY(-3px); box-shadow:0 30px 60px -20px rgba(25,23,18,.16); border-color:var(--gold-dim); }
 .blog-thumb{
   display:flex; align-items:center; justify-content:center;
-  height:110px; margin:-36px -36px 4px;
+  height:72px; margin:-20px -20px 2px;
   border-radius:var(--radius-md) var(--radius-md) 0 0;
   position:relative; overflow:hidden;
   background:radial-gradient(120% 160% at 20% -10%,#182238 0%,var(--navy) 45%,var(--black) 100%);
@@ -508,13 +508,13 @@ p{ margin:0; }
   opacity:.5; mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
 }
-.blog-thumb svg{ width:36px; height:36px; position:relative; z-index:1; }
-.blog-card-meta{ display:flex; align-items:center; gap:14px; }
-.blog-card-date{ font-size:13px; color:var(--gray-400); }
-.blog-card h3{ font-size:1.5rem; }
+.blog-thumb svg{ width:24px; height:24px; position:relative; z-index:1; }
+.blog-card-meta{ display:flex; align-items:center; gap:10px; }
+.blog-card-date{ font-size:12px; color:var(--gray-400); }
+.blog-card h3{ font-size:1.1rem; }
 .blog-card h3 a{ color:inherit; }
 .blog-card h3 a:hover{ color:var(--gold); }
-.blog-card p{ color:var(--gray-600); line-height:1.7; font-size:1rem; }
+.blog-card p{ color:var(--gray-600); line-height:1.55; font-size:.88rem; }
 
 .article-meta{ display:flex; align-items:center; gap:14px; margin-top:8px; }
 .article-meta .blog-card-date{ color:var(--muted-dark-bg); }
