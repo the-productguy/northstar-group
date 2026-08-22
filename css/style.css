@@ -357,6 +357,16 @@ p{ margin:0; }
 .footer-col a:hover{ color:#fff; }
 .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:28px; font-size:.82rem; color:var(--gray-600); flex-wrap:wrap; gap:12px; }
 
+.footer-social{ display:flex; gap:10px; margin-top:22px; }
+.footer-social a{
+  display:flex; align-items:center; justify-content:center;
+  width:38px; height:38px; border-radius:50%;
+  border:1px solid var(--line-dark); color:var(--muted-dark-bg);
+  transition:border-color .25s ease, color .25s ease, background .25s ease;
+}
+.footer-social a:hover{ border-color:rgba(217,184,119,.5); color:var(--gold-light); background:rgba(217,184,119,.08); }
+.footer-social svg{ width:17px; height:17px; }
+
 /* ---------- Reveal ---------- */
 .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s var(--ease),transform .8s var(--ease); }
 .reveal.is-visible{ opacity:1; transform:translateY(0); }
