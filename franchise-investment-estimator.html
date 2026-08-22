@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armenia Franchise Investment Estimator | NorthStar Group</title>
+<meta name="description" content="Estimate the total investment required to launch your brand in Armenia - by sector, format size, and number of locations. A transparent, assumption-based planning tool from NorthStar Group.">
+<link rel="canonical" href="https://northstararmenia.com/franchise-investment-estimator.html">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NorthStar Group">
+<meta property="og:title" content="Armenia Franchise Investment Estimator | NorthStar Group">
+<meta property="og:description" content="Estimate the total investment required to launch your brand in Armenia - by sector, format size, and number of locations. A transparent, assumption-based planning tool from NorthStar Group.">
+<meta property="og:url" content="https://northstararmenia.com/franchise-investment-estimator.html">
+<meta property="og:image" content="https://northstararmenia.com/assets/og/site.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Armenia Franchise Investment Estimator | NorthStar Group">
+<meta name="twitter:description" content="Estimate the total investment required to launch your brand in Armenia - by sector, format size, and number of locations. A transparent, assumption-based planning tool from NorthStar Group.">
+<meta name="twitter:image" content="https://northstararmenia.com/assets/og/site.jpg">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://northstararmenia.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Investment Estimator", "item": "https://northstararmenia.com/franchise-investment-estimator.html" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is the Armenia Franchise Investment Estimator?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The estimator produces a planning-level range based on published Armenia market benchmarks (construction costs, wages, tax rates, import duties) and standard franchise industry fee structures. It is designed to size the opportunity directionally, not to replace a formal investment proposal, which NorthStar Group prepares after reviewing a brand's specific format and requirements." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to pay any of this investment myself?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. As Armenia's master franchise and area development partner, NorthStar Group funds the investment shown by this estimator - real estate, buildout, equipment, licensing, and working capital - directly. Brands are not asked to fund their own market entry." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is included in the estimate?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The estimate covers real estate fit-out and leasehold improvements, equipment and FF&E, initial inventory and working capital, licensing and import duties, pre-opening costs, and master franchise or area development fees. It does not include ongoing royalties, which are set by the brand." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the master franchise or area development fee calculated?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The estimator applies standard international franchise industry benchmarks for master franchise and area development entry fees, with a reduced per-unit fee for each additional location beyond the first - reflecting how most franchisors structure multi-unit development rights." }
+    }
+  ]
+}
+</script>
+<style>
+  .estimator-shell{
+    display:grid; grid-template-columns:1fr 1fr; gap:44px;
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:44px; box-shadow:0 40px 80px -40px rgba(25,23,18,.18);
+  }
+  @media (max-width:900px){ .estimator-shell{ grid-template-columns:1fr; padding:28px; gap:32px; } }
+
+  .est-field{ margin-bottom:26px; }
+  .est-field label{ display:flex; justify-content:space-between; font-size:13px; font-weight:600; color:var(--gray-700); margin-bottom:10px; }
+  .est-field label .val{ color:var(--gold); font-family:'Fraunces',serif; font-size:15px; }
+
+  .sector-tabs{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px; }
+  .sector-tab{
+    border:1px solid var(--line); border-radius:12px; padding:12px 10px; background:var(--gray-50);
+    font-size:13px; font-weight:600; color:var(--gray-700); cursor:pointer; text-align:center;
+    transition:all .2s ease; font-family:inherit; width:100%;
+  }
+  .sector-tab.active{ background:var(--navy); color:var(--text-dark-bg); border-color:var(--navy); }
+
+  input[type="range"]{
+    -webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:6px;
+    background:var(--gray-200); outline:none; cursor:pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%;
+    background:var(--gold); border:3px solid var(--white); box-shadow:0 2px 8px rgba(25,23,18,.25); cursor:pointer;
+  }
+  input[type="range"]::-moz-range-thumb{
+    width:20px; height:20px; border-radius:50%; background:var(--gold); border:3px solid var(--white);
+    box-shadow:0 2px 8px rgba(25,23,18,.25); cursor:pointer;
+  }
+
+  .est-output{ background:var(--navy); border-radius:var(--radius-md); padding:32px; color:var(--text-dark-bg); }
+  .est-total-label{ color:var(--gold-light); text-transform:uppercase; letter-spacing:1.5px; font-size:11px; font-weight:600; }
+  .est-total-num{ font-family:'Fraunces',serif; font-size:clamp(1.8rem,4vw,2.5rem); margin-top:8px; line-height:1.15; }
+  .est-total-range{ color:var(--muted-dark-bg); font-size:13px; margin-top:6px; }
+  .est-breakdown{ margin-top:26px; border-top:1px solid var(--line-dark); padding-top:22px; }
+  .est-row{ display:flex; justify-content:space-between; align-items:center; padding:9px 0; font-size:13.5px; }
+  .est-row .bar-wrap{ flex:1; margin:0 14px; height:6px; border-radius:6px; background:rgba(246,245,242,.1); overflow:hidden; }
+  .est-row .bar{ height:100%; background:var(--gold-light); border-radius:6px; }
+  .est-row .name{ width:170px; color:var(--muted-dark-bg); flex-shrink:0; }
+  .est-row .amount{ width:90px; text-align:right; flex-shrink:0; font-weight:600; }
+  .est-note{ margin-top:22px; padding-top:18px; border-top:1px solid var(--line-dark); font-size:12.5px; color:var(--muted-dark-bg); line-height:1.6; }
+
+  .method-table{ width:100%; border-collapse:collapse; margin-top:18px; font-size:14px; }
+  .method-table th, .method-table td{ text-align:left; padding:12px 14px; border-bottom:1px solid var(--line); }
+  .method-table th{ color:var(--gray-600); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.5px; }
+  .method-table td.src{ color:var(--gray-600); font-size:12.5px; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 24 24"><path fill="#c6a15b" d="M12 1.5 14.1 9.9 22.5 12 14.1 14.1 12 22.5 9.9 14.1 1.5 12 9.9 9.9Z"/></svg>
+      NorthStar Group
+    </a>
+    <div class="nav-links">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="why-armenia.html">Why Armenia</a>
+      <a href="blog/index.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-primary">Partner With Us</a>
+    </div>
+    <button class="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mobile-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg></button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="why-armenia.html">Why Armenia</a>
+  <a href="blog/index.html">Blog</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary">Partner With Us</a>
+</div>
+
+<header class="hero hero-page">
+  <div class="container hero-content">
+    <span class="eyebrow reveal">Free Tool</span>
+    <h1 class="display-1 reveal reveal-delay-1" style="font-size:clamp(2.4rem,5vw,4.4rem)">Armenia Franchise <span class="gold-text">Investment Estimator</span>.</h1>
+    <p class="lede reveal reveal-delay-2">See what it actually costs to bring your brand to Armenia - by sector, format size, and number of locations. Every dollar shown here is funded by NorthStar Group, not your brand.</p>
+  </div>
+</header>
+
+<!-- CALCULATOR -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="estimator-shell reveal">
+      <div>
+        <span class="eyebrow" style="color:var(--gold)">Configure</span>
+        <h2 class="display-2" style="font-size:1.7rem;margin-bottom:22px">Your launch, sized.</h2>
+
+        <div class="est-field">
+          <label>Sector</label>
+          <div class="sector-tabs" id="sector-tabs" role="tablist">
+            <button type="button" class="sector-tab active" data-sector="fnb_qsr" role="tab" aria-selected="true">F&B — Quick Service</button>
+            <button type="button" class="sector-tab" data-sector="fnb_casual" role="tab" aria-selected="false">F&B — Casual Dining</button>
+            <button type="button" class="sector-tab" data-sector="retail" role="tab" aria-selected="false">Retail</button>
+            <button type="button" class="sector-tab" data-sector="fitness" role="tab" aria-selected="false">Fitness</button>
+            <button type="button" class="sector-tab" data-sector="hospitality" role="tab" aria-selected="false">Hospitality</button>
+          </div>
+        </div>
+
+        <div class="est-field" id="size-field">
+          <label><span id="size-label">Unit Size</span> <span class="val" id="size-val">120 sqm</span></label>
+          <input type="range" id="size-slider" min="60" max="250" step="10" value="120">
+        </div>
+
+        <div class="est-field">
+          <label>Initial Locations <span class="val" id="units-val">1</span></label>
+          <input type="range" id="units-slider" min="1" max="10" step="1" value="1">
+        </div>
+
+        <div class="est-field">
+          <label>Format Tier <span class="val" id="tier-val">Standard</span></label>
+          <input type="range" id="tier-slider" min="0" max="2" step="1" value="1">
+        </div>
+
+        <p style="font-size:12.5px;color:var(--gray-600);line-height:1.6;margin-top:20px">Estimates are planning-level figures in USD, built from published Armenia market benchmarks and standard franchise industry fee structures. See methodology below.</p>
+      </div>
+
+      <div class="est-output">
+        <div class="est-total-label">Estimated Total Investment</div>
+        <div class="est-total-num" id="total-headline">$0</div>
+        <div class="est-total-range" id="total-range">Range: $0 – $0</div>
+        <div class="est-total-range" id="per-unit-line" style="margin-top:4px">Average per location: $0</div>
+
+        <div class="est-breakdown" id="breakdown"></div>
+
+        <div class="est-note">100% funded by NorthStar Group as your master franchise or area development partner - no capital call on your brand. Figures are illustrative; a formal proposal follows initial discovery.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="header-block center max-w reveal">
+      <span class="eyebrow">Methodology</span>
+      <h2 class="section-title">How this estimate is built.</h2>
+      <p class="lede" style="margin-top:16px">Every input is sourced from published Armenia market data or standard international franchise industry benchmarks - shown here in full, not hidden behind a black box.</p>
+    </div>
+    <div style="max-width:840px;margin:0 auto;overflow-x:auto">
+      <table class="method-table">
+        <tr><th>Input</th><th>Benchmark Used</th><th>Source</th></tr>
+        <tr><td>Commercial fit-out cost</td><td class="src">$300–$750 / sqm, by sector intensity</td><td class="src">Armenia commercial construction cost benchmarks, adjusted for interior fit-out scope</td></tr>
+        <tr><td>Corporate tax rate</td><td class="src">18% flat</td><td class="src">Armenia tax code (2025–2026)</td></tr>
+        <tr><td>VAT</td><td class="src">20% standard rate</td><td class="src">Armenia tax code (2025–2026)</td></tr>
+        <tr><td>Import duty (non-EAEU equipment)</td><td class="src">~10% average, 0% from EAEU members</td><td class="src">Armenia customs tariff schedule</td></tr>
+        <tr><td>Private-sector monthly wage</td><td class="src">~AMD 327,600 (~$850)</td><td class="src">ARMSTAT, 2025</td></tr>
+        <tr><td>Master franchise / area development fee</td><td class="src">$20,000–$120,000, by sector and scale</td><td class="src">Standard international franchise industry fee benchmarks</td></tr>
+        <tr><td>Working capital & inventory</td><td class="src">8%–22% of build cost, by sector</td><td class="src">Standard franchise disclosure document (FDD) allocation ranges</td></tr>
+      </table>
+    </div>
+    <p style="max-width:840px;margin:22px auto 0;font-size:13px;color:var(--gray-600);line-height:1.7">This estimator produces a planning-level range for illustrative purposes only. It is not a binding quote, investment offer, or guarantee of cost - actual figures depend on the brand's specific format, site, and specification, and are refined during NorthStar Group's formal investment structuring process.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="header-block center max-w reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="section-title">The estimator, explained.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <h3>How accurate is the Armenia Franchise Investment Estimator?</h3>
+        <p>The estimator produces a planning-level range based on published Armenia market benchmarks (construction costs, wages, tax rates, import duties) and standard franchise industry fee structures. It is designed to size the opportunity directionally, not to replace a formal investment proposal, which NorthStar Group prepares after reviewing a brand's specific format and requirements.</p>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <h3>Do I need to pay any of this investment myself?</h3>
+        <p>No. As Armenia's master franchise and area development partner, NorthStar Group funds the investment shown by this estimator - real estate, buildout, equipment, licensing, and working capital - directly. Brands are not asked to fund their own market entry.</p>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <h3>What is included in the estimate?</h3>
+        <p>The estimate covers real estate fit-out and leasehold improvements, equipment and FF&E, initial inventory and working capital, licensing and import duties, pre-opening costs, and master franchise or area development fees. It does not include ongoing royalties, which are set by the brand.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h3>How is the master franchise or area development fee calculated?</h3>
+        <p>The estimator applies standard international franchise industry benchmarks for master franchise and area development entry fees, with a reduced per-unit fee for each additional location beyond the first - reflecting how most franchisors structure multi-unit development rights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="cta-band reveal">
+      <span class="eyebrow">Let's Talk</span>
+      <h2>Ready for a formal investment proposal?</h2>
+      <p style="margin-top:14px;color:var(--muted-dark-bg)">Want the full picture first? <a href="market-entry-guide.html" style="text-decoration:underline;color:inherit">Download the free Market Entry Guide</a>.</p>
+      <div class="btn-row" style="margin-top:34px">
+        <a href="contact.html" class="btn btn-primary">Start the Conversation</a>
+        <a href="master-franchise-armenia.html" class="btn btn-outline-light">See the Master Franchise Model</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <svg viewBox="0 0 24 24"><path fill="#c6a15b" d="M12 1.5 14.1 9.9 22.5 12 14.1 14.1 12 22.5 9.9 14.1 1.5 12 9.9 9.9Z"/></svg>
+          NorthStar Group
+        </a>
+        <p>An investment and franchise advisory firm that brings international brands into Armenia.</p>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/company/northstar-group-official/" target="_blank" rel="noopener" aria-label="NorthStar Group on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.86 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="why-northstar.html">Why NorthStar</a></li>
+          <li><a href="market-entry-guide.html">Free Guide</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="why-armenia.html">Why Armenia</a></li>
+          <li><a href="blog/index.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="master-franchise-armenia.html">Master Franchise & Area Development</a></li>
+          <li><a href="services.html">Franchising & Licensing</a></li>
+          <li><a href="services.html">Investment Facilitation</a></li>
+          <li><a href="services.html">Market Research</a></li>
+          <li><a href="services.html">Institutional Cooperation</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:contact@northstararmenia.com">contact@northstararmenia.com</a></li>
+          <li>Yerevan, Armenia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NorthStar Group. All rights reserved.</span>
+      <span>Yerevan, Armenia - A Privately Owned Firm, Not Affiliated with the Government of Armenia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  var SECTORS = {
+    fnb_qsr: {
+      label: 'Food & Beverage — Quick Service', sizeLabel: 'Unit Size',
+      sizeMin: 60, sizeMax: 250, sizeDefault: 120, sizeStep: 10, sizeUnit: 'sqm',
+      fitout: { low: 400, mid: 500, high: 650 },
+      equipment: { low: 250, mid: 350, high: 450 },
+      fee: { low: 20000, mid: 30000, high: 45000 },
+      workingCapitalPct: 0.12, licensingPct: 0.08, preOpeningPct: 0.10
+    },
+    fnb_casual: {
+      label: 'Food & Beverage — Casual Dining', sizeLabel: 'Unit Size',
+      sizeMin: 120, sizeMax: 350, sizeDefault: 200, sizeStep: 10, sizeUnit: 'sqm',
+      fitout: { low: 500, mid: 600, high: 750 },
+      equipment: { low: 300, mid: 400, high: 500 },
+      fee: { low: 30000, mid: 40000, high: 50000 },
+      workingCapitalPct: 0.12, licensingPct: 0.08, preOpeningPct: 0.10
+    },
+    retail: {
+      label: 'Retail', sizeLabel: 'Unit Size',
+      sizeMin: 60, sizeMax: 300, sizeDefault: 120, sizeStep: 10, sizeUnit: 'sqm',
+      fitout: { low: 300, mid: 400, high: 500 },
+      equipment: { low: 150, mid: 200, high: 300 },
+      fee: { low: 20000, mid: 30000, high: 40000 },
+      workingCapitalPct: 0.22, licensingPct: 0.07, preOpeningPct: 0.08
+    },
+    fitness: {
+      label: 'Fitness', sizeLabel: 'Unit Size',
+      sizeMin: 250, sizeMax: 1000, sizeDefault: 500, sizeStep: 25, sizeUnit: 'sqm',
+      fitout: { low: 300, mid: 380, high: 480 },
+      equipment: { low: 350, mid: 500, high: 700 },
+      fee: { low: 30000, mid: 45000, high: 60000 },
+      workingCapitalPct: 0.10, licensingPct: 0.07, preOpeningPct: 0.10
+    },
+    hospitality: {
+      label: 'Hospitality', sizeLabel: 'Rooms',
+      sizeMin: 10, sizeMax: 120, sizeDefault: 40, sizeStep: 5, sizeUnit: 'rooms', perRoom: true,
+      fitout: { low: 25000, mid: 35000, high: 50000 },
+      equipment: { low: 8000, mid: 12000, high: 18000 },
+      fee: { low: 50000, mid: 75000, high: 120000 },
+      workingCapitalPct: 0.08, licensingPct: 0.06, preOpeningPct: 0.08
+    }
+  };
+  var TIERS = ['low', 'mid', 'high'];
+  var TIER_LABELS = ['Value', 'Standard', 'Premium'];
+  var ADDITIONAL_UNIT_FEE_RATIO = 0.6;
+
+  var state = { sector: 'fnb_qsr', size: 120, units: 1, tierIdx: 1 };
+
+  var sizeSlider = document.getElementById('size-slider');
+  var sizeVal = document.getElementById('size-val');
+  var sizeLabel = document.getElementById('size-label');
+  var unitsSlider = document.getElementById('units-slider');
+  var unitsVal = document.getElementById('units-val');
+  var tierSlider = document.getElementById('tier-slider');
+  var tierVal = document.getElementById('tier-val');
+  var tabs = document.querySelectorAll('.sector-tab');
+
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  function computeForTier(cfg, tierKey, size, units) {
+    var fitoutRate = cfg.fitout[tierKey];
+    var equipRate = cfg.equipment[tierKey];
+    var fitoutTotal = fitoutRate * size;
+    var equipTotal = equipRate * size;
+    var buildBase = fitoutTotal + equipTotal;
+    var workingCapital = buildBase * cfg.workingCapitalPct;
+    var licensing = buildBase * cfg.licensingPct;
+    var preOpening = buildBase * cfg.preOpeningPct;
+    var perUnitTotal = fitoutTotal + equipTotal + workingCapital + licensing + preOpening;
+
+    var firstFee = cfg.fee[tierKey];
+    var additionalFee = firstFee * ADDITIONAL_UNIT_FEE_RATIO;
+    var totalFees = firstFee + Math.max(0, units - 1) * additionalFee;
+
+    return {
+      fitout: fitoutTotal * units,
+      equipment: equipTotal * units,
+      workingCapital: workingCapital * units,
+      licensing: licensing * units,
+      preOpening: preOpening * units,
+      fees: totalFees,
+      total: perUnitTotal * units + totalFees
+    };
+  }
+
+  function render() {
+    var cfg = SECTORS[state.sector];
+    var tierKey = TIERS[state.tierIdx];
+
+    sizeSlider.min = cfg.sizeMin; sizeSlider.max = cfg.sizeMax; sizeSlider.step = cfg.sizeStep;
+    if (state.size < cfg.sizeMin || state.size > cfg.sizeMax) state.size = cfg.sizeDefault;
+    sizeSlider.value = state.size;
+    sizeLabel.textContent = cfg.sizeLabel;
+    sizeVal.textContent = state.size + ' ' + cfg.sizeUnit;
+    unitsVal.textContent = state.units;
+    tierVal.textContent = TIER_LABELS[state.tierIdx];
+
+    var mid = computeForTier(cfg, 'mid', state.size, state.units);
+    var low = computeForTier(cfg, 'low', state.size, state.units);
+    var high = computeForTier(cfg, 'high', state.size, state.units);
+    var headline = computeForTier(cfg, tierKey, state.size, state.units);
+
+    document.getElementById('total-headline').textContent = fmt(headline.total);
+    document.getElementById('total-range').textContent = 'Range: ' + fmt(low.total) + ' – ' + fmt(high.total);
+    document.getElementById('per-unit-line').textContent = 'Average per location: ' + fmt(headline.total / state.units);
+
+    var rows = [
+      { name: 'Real Estate & Fit-Out', amount: headline.fitout },
+      { name: cfg.perRoom ? 'FF&E' : 'Equipment & FF&E', amount: headline.equipment },
+      { name: 'Franchise / Dev. Fees', amount: headline.fees },
+      { name: 'Working Capital & Inventory', amount: headline.workingCapital },
+      { name: 'Licensing & Import Duties', amount: headline.licensing },
+      { name: 'Pre-Opening Costs', amount: headline.preOpening }
+    ];
+    var maxAmount = Math.max.apply(null, rows.map(function (r) { return r.amount; }));
+    var breakdownEl = document.getElementById('breakdown');
+    breakdownEl.innerHTML = rows.map(function (r) {
+      var pct = maxAmount > 0 ? (r.amount / maxAmount * 100) : 0;
+      return '<div class="est-row"><span class="name">' + r.name + '</span>' +
+        '<span class="bar-wrap"><span class="bar" style="width:' + pct.toFixed(1) + '%"></span></span>' +
+        '<span class="amount">' + fmt(r.amount) + '</span></div>';
+    }).join('');
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      state.sector = tab.getAttribute('data-sector');
+      state.size = SECTORS[state.sector].sizeDefault;
+      render();
+    });
+  });
+  sizeSlider.addEventListener('input', function () { state.size = parseInt(sizeSlider.value, 10); render(); });
+  unitsSlider.addEventListener('input', function () { state.units = parseInt(unitsSlider.value, 10); render(); });
+  tierSlider.addEventListener('input', function () { state.tierIdx = parseInt(tierSlider.value, 10); render(); });
+
+  render();
+})();
+</script>
+</body>
+</html>
