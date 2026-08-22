@@ -29,6 +29,23 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap">
 <link rel="stylesheet" href="../css/style.css">
+<style>
+  .blog-search-wrap{ max-width:520px; margin:0 auto 8px; }
+  .blog-search-field{ position:relative; }
+  .blog-search-field svg{
+    position:absolute; left:18px; top:50%; transform:translateY(-50%);
+    width:18px; height:18px; color:var(--gray-400); pointer-events:none;
+  }
+  .blog-search-field input{
+    width:100%; padding:15px 18px 15px 48px; border-radius:999px; border:1px solid var(--line);
+    font-family:inherit; font-size:15px; background:var(--gray-50); color:var(--text);
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .blog-search-field input:focus{ outline:none; border-color:var(--gold); background:#fff; }
+  .blog-search-count{ text-align:center; margin-top:14px; font-size:13px; color:var(--gray-600); }
+  .blog-search-empty{ text-align:center; padding:60px 20px; color:var(--gray-600); display:none; }
+  .blog-card[hidden]{ display:none; }
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -81,10 +98,23 @@
   </div>
 </header>
 
+<section class="section bg-white" style="padding-bottom:0">
+  <div class="container">
+    <div class="blog-search-wrap reveal">
+      <div class="blog-search-field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="blog-search" placeholder="Search articles by keyword..." aria-label="Search blog articles" autocomplete="off">
+      </div>
+      <p class="blog-search-count" id="blog-search-count"></p>
+    </div>
+  </div>
+</section>
+
 <section class="section bg-white">
   <div class="container">
-    <div class="grid grid-3">
-      <div class="blog-card reveal">
+    <p class="blog-search-empty" id="blog-search-empty">No articles match your search. Try a different keyword.</p>
+    <div class="grid grid-3" id="blog-grid">
+      <div class="blog-card reveal" data-slug="master-franchise-vs-area-developer">
         <a href="master-franchise-vs-area-developer.html" class="blog-thumb" aria-hidden="true" tabindex="-1">
           <span class="blog-thumb-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -100,7 +130,7 @@
         <p>A clear breakdown of the two structures international brands use to enter new markets - how they differ, when brands use each, and which one fits a given expansion plan.</p>
         <a href="master-franchise-vs-area-developer.html" class="link-arrow">Read article →</a>
       </div>
-      <div class="blog-card reveal reveal-delay-1">
+      <div class="blog-card reveal reveal-delay-1" data-slug="cost-to-franchise-internationally">
         <a href="cost-to-franchise-internationally.html" class="blog-thumb" aria-hidden="true" tabindex="-1">
           <span class="blog-thumb-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -116,7 +146,7 @@
         <p>What actually drives the cost of international franchise expansion - real estate, equipment, fees, working capital, and contingency - and who typically pays for it.</p>
         <a href="cost-to-franchise-internationally.html" class="link-arrow">Read article →</a>
       </div>
-      <div class="blog-card reveal reveal-delay-2">
+      <div class="blog-card reveal reveal-delay-2" data-slug="3c-standard-master-franchise-partner">
         <a href="3c-standard-master-franchise-partner.html" class="blog-thumb" aria-hidden="true" tabindex="-1">
           <span class="blog-thumb-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -132,7 +162,7 @@
         <p>Well-capitalized, capable, and committed - the screening standard most franchisors use to evaluate master franchise and area development candidates, explained.</p>
         <a href="3c-standard-master-franchise-partner.html" class="link-arrow">Read article →</a>
       </div>
-      <div class="blog-card reveal">
+      <div class="blog-card reveal" data-slug="tripp-agreement-armenia-us">
         <a href="tripp-agreement-armenia-us.html" class="blog-thumb" aria-hidden="true" tabindex="-1">
           <span class="blog-thumb-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -150,7 +180,7 @@
         <p>Armenia's Foreign Minister says a U.S.-Armenia framework agreement on the TRIPP transit corridor could be signed within weeks - a major signal for Armenia's investment story.</p>
         <a href="tripp-agreement-armenia-us.html" class="link-arrow">Read article →</a>
       </div>
-      <div class="blog-card reveal reveal-delay-1">
+      <div class="blog-card reveal reveal-delay-1" data-slug="firebird-ai-factory-armenia">
         <a href="firebird-ai-factory-armenia.html" class="blog-thumb" aria-hidden="true" tabindex="-1">
           <span class="blog-thumb-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -168,7 +198,7 @@
         <p>Firebird has switched on the region's largest AI factory in Hrazdan, backed by NVIDIA and Dell Technologies, with plans to scale toward 2 gigawatts of global capacity by 2028.</p>
         <a href="firebird-ai-factory-armenia.html" class="link-arrow">Read article →</a>
       </div>
-      <div class="blog-card reveal reveal-delay-2">
+      <div class="blog-card reveal reveal-delay-2" data-slug="subway-coming-to-armenia">
         <a href="subway-coming-to-armenia.html" class="blog-thumb" aria-hidden="true" tabindex="-1">
           <span class="blog-thumb-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -241,5 +271,70 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script>
+(function () {
+  var ARTICLES = {
+    'master-franchise-vs-area-developer': `Master Franchise vs. Area Developer: What's the Difference?
+      Almost every brand that expands internationally eventually runs into the same fork in the road: should the local partner become a master franchisee, or an area developer? The two structures get used interchangeably in casual conversation, but they're legally and financially distinct - and the choice shapes everything from who controls sub-licensing to how quickly a market gets built out.
+      What Is a Master Franchise Agreement? A master franchise agreement grants one partner - the master franchisee - the exclusive right to develop a brand across an entire country or region, including the right to recruit, sign, and manage individual sub-franchisees on the brand's behalf. The master franchisee collects franchise fees and royalties from sub-franchisees, provides training and support, and enforces brand standards.
+      What Is an Area Development Agreement? An area development agreement is narrower and more direct. One partner - the area developer - commits to opening and directly operating a set number of company-owned units within a defined territory, on an agreed timeline. There's no sub-licensing: every unit is built and run by the area developer itself.
+      Key Differences: sub-licensing rights, revenue model, control and consistency, capital intensity. Which Structure Should a Brand Choose? It depends on the brand's priorities and the size of the market. Armenia is a compact, single-city-dominant market - Yerevan accounts for over a third of the country's population. NorthStar Group works with brands under either structure.`,
+    'cost-to-franchise-internationally': `How Much Does It Cost to Franchise a Brand Internationally?
+      It's the first question every brand asks before entering a new market: what will this actually cost? The categories that make up that cost are remarkably consistent from market to market.
+      The Core Cost Categories: real estate and fit-out, equipment and FF&E, lease deposit and advance rent, working capital and a ramp-up reserve, licensing permits and import duties, master franchise or area development fees, contingency reserve.
+      Why Costs Vary So Much by Market. The same quick-service restaurant format might cost two to three times as much to build out in a mature Western European capital as in a smaller, lower-cost emerging market.
+      Who Actually Pays for International Expansion? In master franchise and area development deals it's common for the local partner to fund the launch entirely. NorthStar Group funds the real estate, buildout, equipment, licensing, and working capital directly in Armenia, so brands aren't asked to capitalize their own market entry. Estimating Your Own Investment with the free Armenia Franchise Investment Estimator.`,
+    '3c-standard-master-franchise-partner': `The 3C Standard: What Franchisors Look for in a Master Franchise Partner
+      Before signing a master franchise or area development agreement, most franchisors run candidates through the 3C standard: well-capitalized, capable, and committed.
+      Well-Capitalized: can this partner fund the launch - real estate, buildout, equipment, licensing, working capital - without relying on the brand to underwrite the risk.
+      Capable: a demonstrated track record building, scaling, and operating companies, ideally in the target market, with local market knowledge and a team capable of site selection, licensing, hiring, and operations.
+      Committed: master franchise and area development agreements are long-term commitments. Exclusive, long-term territory rights align incentives so the partner's return is tied to territory performance.
+      Why the 3C Standard Matters More in Emerging Markets. NorthStar Group publishes an open self-assessment against the full criteria checklist: financial capacity, operational experience, local market knowledge, real estate access, team capability, regulatory standing, and long-term commitment.`,
+    'tripp-agreement-armenia-us': `Armenia and the US Near Signing of the TRIPP Agreement
+      Armenia's Foreign Minister, Ararat Mirzoyan, has signaled that a framework agreement with the United States on the TRIPP transit corridor could be formally signed within weeks. The announcement follows a visit to Yerevan by U.S. Secretary of State Marco Rubio on May 23, 2026.
+      TRIPP - the Trump Route for International Peace and Prosperity - is a U.S.-backed connectivity initiative first announced in August 2025, when President Donald Trump hosted Armenian Prime Minister Nikol Pashinyan and Azerbaijani President Ilham Aliyev at the White House. The route runs roughly 43 kilometers through the town of Meghri in southern Armenia, along the Arax River and the Armenia-Iran border, linking Azerbaijan to its Nakhchivan exclave.
+      A signed, formally implemented TRIPP framework would bring sustained U.S. backing for infrastructure modernization - rail, road, energy, and digital networks. Corridor projects of this scale tend to attract logistics, construction, and energy investment. NorthStar Group is not involved in, affiliated with, or acting on behalf of any government, agency, or party involved in the TRIPP negotiations.`,
+    'firebird-ai-factory-armenia': `Firebird Opens the Region's Largest AI Factory in Armenia
+      Firebird has officially switched on what it describes as the region's largest AI factory - a large-scale, NVIDIA-powered computing facility in Hrazdan, Armenia. The August 8, 2026 launch ranks among the largest single technology investment stories in Armenia's recent history.
+      The inauguration drew Armenian Prime Minister Nikol Pashinyan, NVIDIA founder and CEO Jensen Huang, NVIDIA Vice President Rev Lebaredian, the U.S. Embassy's Chargé d'Affaires David Allen, and Kazakhstan's Deputy Prime Minister Zhaslan Madiyev.
+      Built on NVIDIA's DSX AI Factory reference design with NVIDIA Spectrum-X Ethernet networking, Firebird plans to scale beyond 70,000 NVIDIA Vera Rubin and Blackwell GPUs by the end of 2027, expanding to roughly 300 megawatts of capacity. NVIDIA intends to invest in the company, following an earlier investment from CoreWeave, while Dell Technologies supplied the infrastructure. Perplexity was named as one of the factory's first customers.
+      Firebird has secured 125 megawatts of capacity in Kazakhstan at Data Center Valley, targeting roughly 2 gigawatts of global AI infrastructure capacity by the end of 2028. NorthStar Group is not involved in, affiliated with, or acting on behalf of Firebird, NVIDIA, Dell Technologies, or any party involved in this project.`,
+    'subway-coming-to-armenia': `Subway Plans 60 New Locations in Armenia
+      Subway is preparing a major expansion into Armenia, with plans to open 60 locations across the country. The announcement follows a meeting in Yerevan between Subway's regional leadership and senior Armenian officials.
+      On August 6, 2026, Subway Regional Director Efe Celik met with Armenia's Minister of Economy, Gevorg Papoyan, alongside Armenian investor Levon Hayrapetyan, to discuss the planned rollout. Celik pointed to job creation, the development of Armenia's international franchising culture, local suppliers, and international catering standards.
+      Armenia's quick-service landscape currently blends homegrown favorites - shawarma and lahmajun stands - with international names including KFC, Burger King, and Wendy's. As of this report, no timeline, investment figures, specific locations, or projected employment numbers have been disclosed. NorthStar Group is not involved in, affiliated with, or acting on behalf of Subway, its franchisees, or any party involved in this transaction.`
+  };
+
+  var searchInput = document.getElementById('blog-search');
+  var cards = document.querySelectorAll('#blog-grid .blog-card');
+  var emptyState = document.getElementById('blog-search-empty');
+  var countEl = document.getElementById('blog-search-count');
+  var total = cards.length;
+
+  function normalize(str) {
+    return str.toLowerCase().replace(/\s+/g, ' ').trim();
+  }
+
+  function filterCards() {
+    var query = normalize(searchInput.value);
+    var visibleCount = 0;
+
+    cards.forEach(function (card) {
+      var slug = card.getAttribute('data-slug');
+      var haystack = normalize(ARTICLES[slug] || card.textContent);
+      var matches = query === '' || haystack.indexOf(query) !== -1;
+      card.hidden = !matches;
+      if (matches) visibleCount++;
+    });
+
+    emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    countEl.textContent = query === '' ? '' : ('Showing ' + visibleCount + ' of ' + total + ' articles');
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterCards);
+  }
+})();
+</script>
 </body>
 </html>
