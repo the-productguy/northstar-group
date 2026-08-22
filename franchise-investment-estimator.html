@@ -62,7 +62,7 @@
     {
       "@type": "Question",
       "name": "How is the master franchise or area development fee calculated?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The estimator applies standard international franchise industry benchmarks for master franchise and area development entry fees, with a reduced per-unit fee for each additional location beyond the first - reflecting how most franchisors structure multi-unit development rights." }
+      "acceptedAnswer": { "@type": "Answer", "text": "The estimator applies a per-unit development fee for each location, plus a one-time master franchise or area development territory fee that reflects the value of exclusive national rights - consistent with how most international franchisors structure multi-unit agreements abroad." }
     }
   ]
 }
@@ -185,7 +185,7 @@
 
         <div class="est-field">
           <label>Initial Locations <span class="val" id="units-val">1</span></label>
-          <input type="range" id="units-slider" min="1" max="10" step="1" value="1">
+          <input type="range" id="units-slider" min="1" max="100" step="1" value="1">
         </div>
 
         <div class="est-field">
@@ -221,12 +221,13 @@
     <div style="max-width:840px;margin:0 auto;overflow-x:auto">
       <table class="method-table">
         <tr><th>Input</th><th>Benchmark Used</th><th>Source</th></tr>
-        <tr><td>Commercial fit-out cost</td><td class="src">$300–$750 / sqm, by sector intensity</td><td class="src">Armenia commercial construction cost benchmarks, adjusted for interior fit-out scope</td></tr>
+        <tr><td>Commercial fit-out cost</td><td class="src">$300–$1,100 / sqm, by sector intensity</td><td class="src">Armenia commercial construction cost benchmarks, adjusted for interior fit-out scope and brand-standard specification</td></tr>
         <tr><td>Corporate tax rate</td><td class="src">18% flat</td><td class="src">Armenia tax code (2025–2026)</td></tr>
         <tr><td>VAT</td><td class="src">20% standard rate</td><td class="src">Armenia tax code (2025–2026)</td></tr>
         <tr><td>Import duty (non-EAEU equipment)</td><td class="src">~10% average, 0% from EAEU members</td><td class="src">Armenia customs tariff schedule</td></tr>
         <tr><td>Private-sector monthly wage</td><td class="src">~AMD 327,600 (~$850)</td><td class="src">ARMSTAT, 2025</td></tr>
-        <tr><td>Master franchise / area development fee</td><td class="src">$20,000–$120,000, by sector and scale</td><td class="src">Standard international franchise industry fee benchmarks</td></tr>
+        <tr><td>Per-unit development fee</td><td class="src">$20,000–$120,000, by sector, charged per location</td><td class="src">Standard international franchise industry fee benchmarks</td></tr>
+        <tr><td>Master franchise / territory fee</td><td class="src">One-time premium reflecting exclusive national rights, scaled to committed locations</td><td class="src">Standard master franchise fee structuring practice</td></tr>
         <tr><td>Working capital & inventory</td><td class="src">8%–22% of build cost, by sector</td><td class="src">Standard franchise disclosure document (FDD) allocation ranges</td></tr>
       </table>
     </div>
@@ -256,7 +257,7 @@
       </div>
       <div class="faq-item reveal">
         <h3>How is the master franchise or area development fee calculated?</h3>
-        <p>The estimator applies standard international franchise industry benchmarks for master franchise and area development entry fees, with a reduced per-unit fee for each additional location beyond the first - reflecting how most franchisors structure multi-unit development rights.</p>
+        <p>The estimator applies a per-unit development fee for each location, plus a one-time master franchise or area development territory fee that reflects the value of exclusive national rights - consistent with how most international franchisors structure multi-unit agreements abroad.</p>
       </div>
     </div>
   </div>
@@ -334,16 +335,16 @@
     fnb_qsr: {
       label: 'Food & Beverage — Quick Service', sizeLabel: 'Unit Size',
       sizeMin: 60, sizeMax: 250, sizeDefault: 120, sizeStep: 10, sizeUnit: 'sqm',
-      fitout: { low: 400, mid: 500, high: 650 },
-      equipment: { low: 250, mid: 350, high: 450 },
+      fitout: { low: 550, mid: 750, high: 950 },
+      equipment: { low: 400, mid: 550, high: 700 },
       fee: { low: 20000, mid: 30000, high: 45000 },
       workingCapitalPct: 0.12, licensingPct: 0.08, preOpeningPct: 0.10
     },
     fnb_casual: {
       label: 'Food & Beverage — Casual Dining', sizeLabel: 'Unit Size',
       sizeMin: 120, sizeMax: 350, sizeDefault: 200, sizeStep: 10, sizeUnit: 'sqm',
-      fitout: { low: 500, mid: 600, high: 750 },
-      equipment: { low: 300, mid: 400, high: 500 },
+      fitout: { low: 700, mid: 900, high: 1100 },
+      equipment: { low: 450, mid: 600, high: 750 },
       fee: { low: 30000, mid: 40000, high: 50000 },
       workingCapitalPct: 0.12, licensingPct: 0.08, preOpeningPct: 0.10
     },
@@ -374,7 +375,8 @@
   };
   var TIERS = ['low', 'mid', 'high'];
   var TIER_LABELS = ['Value', 'Standard', 'Premium'];
-  var ADDITIONAL_UNIT_FEE_RATIO = 0.6;
+  var TERRITORY_FEE_RATIO = 0.15;
+  var TERRITORY_FEE_CAP_UNITS = 20;
 
   var state = { sector: 'fnb_qsr', size: 120, units: 1, tierIdx: 1 };
 
@@ -402,9 +404,10 @@
     var preOpening = buildBase * cfg.preOpeningPct;
     var perUnitTotal = fitoutTotal + equipTotal + workingCapital + licensing + preOpening;
 
-    var firstFee = cfg.fee[tierKey];
-    var additionalFee = firstFee * ADDITIONAL_UNIT_FEE_RATIO;
-    var totalFees = firstFee + Math.max(0, units - 1) * additionalFee;
+    var unitFee = cfg.fee[tierKey];
+    var perUnitFees = unitFee * units;
+    var territoryFee = unitFee * Math.min(units, TERRITORY_FEE_CAP_UNITS) * TERRITORY_FEE_RATIO;
+    var totalFees = perUnitFees + territoryFee;
 
     return {
       fitout: fitoutTotal * units,
