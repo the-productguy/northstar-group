@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://northstararmenia.com/sitemap.xml
