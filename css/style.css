@@ -183,8 +183,8 @@ p{ margin:0; }
   color:var(--text);
 }
 .nav .container{ display:flex; align-items:center; justify-content:space-between; width:100%; }
-.brand{ display:flex; align-items:center; gap:11px; font-family:var(--font-serif); font-weight:500; font-size:19px; letter-spacing:.01em; }
-.brand svg{ width:20px; height:20px; }
+.brand{ display:flex; align-items:center; gap:12px; font-family:var(--font-serif); font-weight:600; font-size:21px; letter-spacing:.005em; }
+.brand svg{ width:22px; height:22px; }
 .nav-links{ display:flex; align-items:center; gap:40px; }
 .nav-links a{ font-size:12px; font-weight:500; letter-spacing:.06em; text-transform:uppercase; opacity:.78; transition:opacity .2s ease; }
 .nav-links a:hover{ opacity:1; }
