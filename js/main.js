@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = await response.json();
         if (response.ok && result.success) {
           form.reset();
-          showToast('Thank you — your message has been sent successfully.');
+          showToast('Thank you - your message has been sent successfully.');
         } else {
           error && error.classList.add('show');
         }
